@@ -19,8 +19,10 @@ char **tokenize(char *cmd, const char *delim)
 	argv = malloc(sizeof(char *) * (token_len + 1));
 
 	if (!argv)
+	{
 		free(cmd);
-	return (NULL);
+		return (NULL);
+	}
 	token = strtok(cmd, delim);
 
 	while (token)

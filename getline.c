@@ -17,7 +17,7 @@ char *rdcmd()
 	while (1)
 	{
 		rd_chars = read(STDIN_FILENO, &chr, 1);
-		if (rd_chars == NULL || rd_chars == -1)
+		if (rd_chars == 0 || rd_chars == -1)
 		{
 			free(buf);
 			return (NULL);
@@ -25,8 +25,10 @@ char *rdcmd()
 		buf[len] = chr;
 
 		if (len == BUF - 1 || chr == '\n')
+		{
 			buf[len] = '\0';
 			return (buf);
+		}
 
 		if (len + 1 >= BUF)
 		{

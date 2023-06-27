@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * num_tokens - function that counts number of tokens
  * @cmd: command
@@ -12,7 +13,7 @@ size_t num_tokens(char *cmd, const char *delim)
 	size_t num = 0;
 
 	if (!cmd)
-		return (NULL);
+		return (0);
 	cpy_cmd = my_strdup(cmd);
 	if (!cpy_cmd)
 		return (0);
