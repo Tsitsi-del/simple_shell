@@ -33,9 +33,11 @@ int execmd(char **av)
 	else if (pid == 0)
 	{
 		if (execve(the_cmd, av, NULL) == -1)
+		{
 			perror("Excution failed");
 			free(the_cmd);
 			exit(1);
+		}
 	}
 	else
 	{

@@ -11,21 +11,17 @@
 
 int my_strcmp(const char *str_1, const char *str_2, size_t n)
 {
+	size_t x = 0;
 
 	if (str_1 == NULL || str_2 == NULL)
-	{
 		return (-1);
-	}
-	size_t x = 0;
 
 	while (x < n && str_1[x] != '\0' && str_1[x] == str_2[x])
 	{
 		x++;
 	}
 	if (x == n)
-	{
 		return (0);
-	}
 	return (str_1[x] - str_2[x]);
 }
 

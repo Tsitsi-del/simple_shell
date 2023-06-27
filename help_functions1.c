@@ -24,7 +24,7 @@ char *my_getenv(const char *env_name)
 	{
 		if (my_strcmp(env_name, env[index], env_len) == 0)
 		{
-			delim = my_strchr(env[ndexi], '=');
+			delim = my_strchr(env[index], '=');
 			if (delim)
 			{
 				val_len = my_strlen(delim + 1);
@@ -77,8 +77,10 @@ void *my_realloc(void *ptr, size_t o_size, size_t nw_size)
 	if (nw_size == o_size)
 		return (ptr);
 	if (nw_size == 0 && ptr)
+	{
 		free(ptr);
 		return (NULL);
+	}
 	if (!ptr)
 		return (malloc(nw_size));
 
