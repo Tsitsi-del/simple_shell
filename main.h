@@ -21,7 +21,7 @@ char *my_strcpy(char *dest, const char *src);
 int my_strcmp(const char *str_1, const char *str_2, size_t n);
 int my_cmp_Str(const char *str_1, const char *str_2);
 char *my_strchr(const char *s, int c);
-
+void new_lineremoved(char *s);
 void cmd_not_found(const char *cmd);
 
 char *_strtok(char *str, const char *delim);
