@@ -14,12 +14,14 @@ char *get_path(char *cmd)
 	struct stat buf;
 
 	path = my_getenv("PATH");
-	if (path == NULL)
+	if (!path)
 	{
 		return (NULL);
 	}
 	copy_path = my_strdup(path);
-	if (copy_path == NULL)
+	free(path);
+
+	if (!copy_path)
 	{
 		return (NULL);
 	}
@@ -28,7 +30,7 @@ char *get_path(char *cmd)
 	while (token)
 	{
 		path_cmd = crt_path(token, cmd);
-		if (path_cmd == NULL)
+		if (!path_cmd)
 		{
 			free(copy_path);
 			return (NULL);

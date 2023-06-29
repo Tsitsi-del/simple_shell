@@ -27,7 +27,7 @@ void cmd_not_found(const char *cmd);
 char *_strtok(char *str, const char *delim);
 
 extern char **environ;
-
+void freeArgs(char **args);
 void display_env(void);
 char **token(char *cmd, const char *delim);
 int execmd(char **av);

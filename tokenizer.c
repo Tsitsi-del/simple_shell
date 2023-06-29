@@ -31,7 +31,7 @@ char **tokenize(char *cmd, const char *delim)
 		if (argv[index] == NULL)
 		{
 			for (q = 0; q < index; q++)
-				free(argv[q]);
+				freeArgs(argv);
 			free(argv);
 			free(cmd);
 			return (NULL);
@@ -41,4 +41,21 @@ char **tokenize(char *cmd, const char *delim)
 	}
 	argv[index] = NULL;
 	return (argv);
+}
+
+/**
+ * freeArgs - free memory in array of args
+ * @args: array to be freed
+ */
+
+void freeArgs(char **args)
+{
+	 size_t i = 0;
+
+	 while (args[i] != NULL)
+	 {
+		 free(args[i]);
+		 i++;
+	 }
+	 free(args);
 }

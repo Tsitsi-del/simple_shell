@@ -21,7 +21,8 @@ int execmd(char **av)
 	the_cmd = get_path(cmd);
 
 	if (!the_cmd)
-		return (-1);
+	{
+		return (-1); }
 
 	pid = fork();
 	if (pid == -1)
@@ -44,5 +45,6 @@ int execmd(char **av)
 		if (wait(&status) == -1)
 			perror("Error");
 	}
+	free(the_cmd);
 	return (0);
 }

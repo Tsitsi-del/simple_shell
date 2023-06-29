@@ -9,7 +9,7 @@
 
 char *my_getenv(const char *env_name)
 {
-	char *val;
+	char *val = NULL;
 	char **env = environ;
 	size_t env_len = 0;
 	char *delim;
@@ -30,12 +30,14 @@ char *my_getenv(const char *env_name)
 				val_len = my_strlen(delim + 1);
 				val = malloc(sizeof(char) * (val_len + 1));
 				if (!val)
-					return (NULL);
+				{ free(val);
+					return (NULL); }
 				my_strcpy(val, delim + 1);
 				return (val);
 			}
 		}
 	}
+	free(val);
 	return (NULL);
 }
 
@@ -52,12 +54,14 @@ char *crt_path(char *directory, char *cmd)
 
 	full_path = malloc(my_strlen(directory) + my_strlen(cmd) + 2);
 	if (!full_path)
-		return (NULL);
+	{
+		free(full_path);
+		return (NULL); }
 
 	my_strcpy(full_path, directory);
 	my_strcpy(full_path, "/");
 	my_strcat(full_path, cmd);
-
+	
 	return (full_path);
 }
 

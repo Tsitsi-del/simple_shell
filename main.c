@@ -20,13 +20,8 @@ int main(__attribute((unused)) int argc, char **av)
 		cmd = rdcmd();
 		if (!cmd)
 		{
-			if (feof(stdin))
-			{ perror("reached end of file");
-				exit(EXIT_FAILURE); }
-			else
-			{ perror("failed to read command");
-				break; }}
-		new_lineremoved(cmd);
+			free(cmd);
+			return (0); }
 		if (cmd[0] == '\0')
 		{ free(cmd);
 			continue; }
@@ -36,7 +31,7 @@ int main(__attribute((unused)) int argc, char **av)
 			free(cmd);
 			continue; }
 		if (my_strcmp(argv[0], "exit", 4) == 0)
-		{ free(argv);
+		{ freeArgs(argv);
 			free(cmd);
 			break; }
 		else if (my_strcmp(argv[0], "env", 3) == 0)
@@ -45,6 +40,6 @@ int main(__attribute((unused)) int argc, char **av)
 		{
 			if (execmd(argv) != 0)
 				perror(av[0]); }
-		free(argv);
+		freeArgs(argv);
 		free(cmd); }
 	return (0); }

@@ -12,7 +12,9 @@ char *rdcmd()
 
 	buf = malloc(BUF);
 	if (!buf)
-		return (NULL);
+	{
+		free(buf);
+		return (NULL); }
 
 	while (1)
 	{
@@ -34,7 +36,9 @@ char *rdcmd()
 		{
 			buf = increase_buf(buf, BUF + len);
 			if (!buf)
-				return (NULL);
+			{
+				free(buf);
+				return (NULL); }
 		}
 		len++;
 	}
