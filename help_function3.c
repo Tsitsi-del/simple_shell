@@ -27,3 +27,14 @@ size_t num_tokens(char *cmd, const char *delim)
 	free(cpy_cmd);
 	return (num);
 }
+/**
+ * handle_signal - handle ctrl c
+ * @signum: int
+ */
+
+void handle_signal(int signum)
+{
+	if (signum == SIGINT)
+	{
+		write(STDOUT_FILENO, "\nShell $ ", 9); }
+}

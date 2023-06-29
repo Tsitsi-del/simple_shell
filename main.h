@@ -28,6 +28,7 @@ char *_strtok(char *str, const char *delim);
 
 extern char **environ;
 void freeArgs(char **args);
+void handle_signal(int signum);
 void display_env(void);
 char **token(char *cmd, const char *delim);
 int execmd(char **av);
