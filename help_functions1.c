@@ -61,7 +61,7 @@ char *crt_path(char *directory, char *cmd)
 	my_strcpy(full_path, directory);
 	my_strcpy(full_path, "/");
 	my_strcat(full_path, cmd);
-	
+
 	return (full_path);
 }
 

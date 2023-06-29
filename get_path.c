@@ -22,9 +22,8 @@ char *get_path(char *cmd)
 	free(path);
 
 	if (!copy_path)
-	{
 		return (NULL);
-	}
+
 	token = strtok(copy_path, ":");
 
 	while (token)
@@ -46,8 +45,7 @@ char *get_path(char *cmd)
 	free(copy_path);
 
 	if (stat(cmd, &buf) == 0)
-	{
 		return (cmd);
-	}
+
 	return (NULL);
 }

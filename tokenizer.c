@@ -50,12 +50,12 @@ char **tokenize(char *cmd, const char *delim)
 
 void freeArgs(char **args)
 {
-	 size_t i = 0;
+	size_t i = 0;
 
-	 while (args[i] != NULL)
-	 {
-		 free(args[i]);
-		 i++;
-	 }
-	 free(args);
+	while (args[i] != NULL)
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
 }
