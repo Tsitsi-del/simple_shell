@@ -36,6 +36,5 @@ void handle_signal(int signum)
 {
 	if (signum == SIGINT)
 	{
-		write(STDOUT_FILENO, "\nShell exit.\n", 15);
 		exit(0); }
 }
