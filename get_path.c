@@ -13,6 +13,9 @@ char *get_path(char *cmd)
 	char *path_cmd;
 	struct stat buf;
 
+	if (cmd && (my_strchr(cmd, '/') || my_strchr(cmd, '.')))
+	{
+	return (my_strdup(cmd)); }
 	path = my_getenv("PATH");
 	if (!path)
 	{
@@ -43,9 +46,5 @@ char *get_path(char *cmd)
 		token = strtok(NULL, ":");
 	}
 	free(copy_path);
-
-	if (stat(cmd, &buf) == 0)
-		return (cmd);
-
 	return (NULL);
 }

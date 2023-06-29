@@ -59,7 +59,7 @@ char *crt_path(char *directory, char *cmd)
 		return (NULL); }
 
 	my_strcpy(full_path, directory);
-	my_strcpy(full_path, "/");
+	my_strcat(full_path, "/");
 	my_strcat(full_path, cmd);
 
 	return (full_path);
