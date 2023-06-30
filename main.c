@@ -9,17 +9,13 @@
 int main(__attribute((unused)) int argc, char **av)
 {
 	char **argv, *cmd = NULL;
-	/*ssize_t num_byts;*/
+
 	signal(SIGINT, handle_signal);
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 			write(STDIN_FILENO, "Shell $ ", 9);
-		/*num_byts = write(STDOUT_FILENO, "Shell $ ", 9);*/
-		/*if (num_byts == -1)*/
-		/*{ perror("Error");*/
-		/*continue; }*/
 		cmd = rdcmd();
 		if (!cmd)
 		{
