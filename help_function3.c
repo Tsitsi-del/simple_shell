@@ -34,7 +34,10 @@ size_t num_tokens(char *cmd, const char *delim)
 
 void handle_signal(int signum)
 {
+	const char *newline = "\n";
+
 	if (signum == SIGINT)
 	{
+		write(STDOUT_FILENO, newline, 1);
 		exit(0); }
 }

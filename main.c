@@ -19,7 +19,7 @@ int main(__attribute((unused)) int argc, char **av)
 		/*num_byts = write(STDOUT_FILENO, "Shell $ ", 9);*/
 		/*if (num_byts == -1)*/
 		/*{ perror("Error");*/
-			/*continue; }*/
+		/*continue; }*/
 		cmd = rdcmd();
 		if (!cmd)
 		{
@@ -36,7 +36,7 @@ int main(__attribute((unused)) int argc, char **av)
 		if (my_strcmp(argv[0], "exit", 4) == 0)
 		{ freeArgs(argv);
 			free(cmd);
-			break; }
+			exit(0); }
 		else if (my_strcmp(argv[0], "env", 3) == 0)
 			display_env();
 		else
