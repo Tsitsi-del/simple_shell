@@ -37,7 +37,7 @@ int execmd(char **av)
 		{
 			perror("Excution failed");
 			free(the_cmd);
-			exit(1);
+			exit(2);
 		}
 	}
 	else
